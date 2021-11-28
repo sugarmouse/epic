@@ -25,10 +25,9 @@ const Component = () => {
     AuthStore.setPassword(values.password);
     AuthStore.register()
       .then(()=>{
-        console.log('注册成功，跳转到首页')
         navigate('/')
       }).catch(()=>{
-        console.log('注册失败，什么都不做')
+        
       })
   };
   const onFinishFailed = (errorInfo) => {

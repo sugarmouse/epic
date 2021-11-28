@@ -1,5 +1,4 @@
 import { Form, Input, Button } from 'antd';
-import Password from 'antd/lib/input/Password';
 import styled from 'styled-components';
 import { useStores } from '../stores/index';
 import { useNavigate } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import AV, { User } from 'leancloud-storage'
+import AV from 'leancloud-storage'
 
 AV.init({
   appId: "RgIcSghc2maGPxftcphxI2cD-9Nh9j0Va",
@@ -6,11 +6,9 @@ AV.init({
   serverURL: "https://rgicsghc.lc-cn-e1-shared.com"
 });
 
-console.log('start...')
-
 const Auth = {
   register(username, password) {
-    let user = new User;
+    let user = new AV.User();
     user.setUsername(username)
     user.setPassword(password)
     return new Promise((resolve, reject) => {
@@ -19,23 +17,36 @@ const Auth = {
   },
   login(username, password) {
     return new Promise((resolve, reject) => {
-      console.log('------')
-      console.log(username, password)
-      User.logIn(username, password).then((user) => resolve(user), (err) => reject(err));
+      AV.User.logIn(username, password).then((user) => resolve(user), (err) => reject(err));
     });
   },
   logout() {
-    User.logOut();
+    AV.User.logOut();
   },
   getCurrentUser() {
-    return User.current();
+    return AV.User.current();
   }
 }
 
-// const Uploader = {
+const Uploader = {
+  add(filename, file) {
+    const item = new AV.Object('Image');
+    const imgFile = new AV.File(filename, file)
+    item.set('filename', filename);
+    item.set('owner', AV.User.current());
+    item.set('url', imgFile);
+    return new Promise((resolve, reject) => {
+      item.save().then(serverFile => {
+        console.log(imgFile.thumbnailURL(800,400))
+        resolve(serverFile)
+      }, err=> reject(err));
+    });
+  },
+}
 
-// }
 
 
-
-export { Auth }
+export {
+  Auth,
+  Uploader
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import LogoUrl from './logo.svg';
 import { NavLink, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
@@ -36,14 +36,12 @@ const Component = observer(() => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    console.log('跳转到登陆页面')
-    navigate('/login')
+    navigate('/login');
   };
   const handleLogout = () => {
     AuthStore.logout();
   };
   const handleRegister = () => {
-    console.log('跳转到注册页面');
     navigate('/register');
   };
 
