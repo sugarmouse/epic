@@ -2,6 +2,7 @@ import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
 import {useStores} from '../stores/index';
 import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 
 const Wraper = styled.div`
   max-width: 600px;
@@ -27,7 +28,7 @@ const Component = () => {
       .then(()=>{
         navigate('/')
       }).catch(()=>{
-        
+        message.error('注册失败，换一个用户名试试')
       })
   };
   const onFinishFailed = (errorInfo) => {

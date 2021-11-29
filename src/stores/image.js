@@ -3,6 +3,7 @@ import { makeObservable, observable, action } from 'mobx';
 import { Uploader } from '../models/index';
 
 
+
 class ImgStore {
 
   @observable filename = '';
@@ -20,20 +21,32 @@ class ImgStore {
   @action setFile(newFile) {
     this.file = newFile
   }
+  @action setServerFile(newFile) {
+    this.serverFile = newFile
+  }
+  @action setIsUploading(type) {
+    this.isUploading = type
+  }
   @action upload() {
-    this.isUploading = true;
+    this.setServerFile(null);
+    this.setIsUploading(true);
     return new Promise((resolve, reject) => {
       Uploader.add(this.filename, this.file)
         .then(serverFile => {
-          this.serverFile = serverFile;
+          this.setServerFile(serverFile)
           resolve(serverFile);
         }).catch(err => {
-          console.log('上传失败');
           reject(err);
         }).finally(() => {
           this.isUploading = false;
         })
     })
+  }
+  @action reset() {
+    this.filename = '';
+    this.file = null;
+    this.isUploading = false;
+    this.serverFile = null;
   }
 }
 

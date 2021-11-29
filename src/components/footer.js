@@ -1,18 +1,19 @@
 import React from "react";
-import styled from 'styled-components'
+import LogoUrl from './logo.svg';
+import { NavLink, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { Button } from 'antd';
+import { useStores } from '../stores/index';
+import { observer } from 'mobx-react';
 
-const Footer = styled.footer`
+const Header = styled.header`
+  height: 60px;
   padding: 10px 100px;
-  text-align: center;
-  font-size: 12px;
-`
+  background-color: #02101f;
+`;
 
+const Component = observer(() => {
+  return <Header />
+})
 
-function Component(){
-  return (
-    <Footer>
-      <h1>Footer</h1>
-    </Footer>
-  )
-}
 export default Component

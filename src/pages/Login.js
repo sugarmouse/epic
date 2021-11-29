@@ -2,6 +2,7 @@ import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
 import { useStores } from '../stores/index';
 import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 
 const Wraper = styled.div`
   max-width: 600px;
@@ -20,15 +21,13 @@ const Component = () => {
   const navigate = useNavigate();
 
   const onFinish = (values) => {
-    console.log('Success:', values);
     AuthStore.setUsername(values.username);
     AuthStore.setPassword(values.password);
     AuthStore.login( )
       .then(() => {
-        console.log('登陆成功，跳转到首页')
         navigate('/')
       }).catch((e) => {
-        console.log(e)
+        message.error('登陆失败')
       })
   };
 

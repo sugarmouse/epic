@@ -1,10 +1,10 @@
 import React from "react";
 import LogoUrl from './logo.svg';
-import { NavLink, useNavigate} from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'antd';
 import { useStores } from '../stores/index';
-import { observer } from 'mobx-react'
+import { observer } from 'mobx-react';
 
 const Header = styled.header`
   display: flex;
@@ -32,20 +32,21 @@ const StyledButton = styled(Button)`
 `
 
 const Component = observer(() => {
-  const { UserStore, AuthStore } = useStores();
+  const { UserStore, AuthStore, ImgStore } = useStores();
   const navigate = useNavigate();
 
   const handleLogin = () => {
     navigate('/login');
   };
   const handleLogout = () => {
+    ImgStore.serverFile = null;
     AuthStore.logout();
   };
   const handleRegister = () => {
     navigate('/register');
   };
 
-  return(
+  return (
     <Header>
       <Logo src={LogoUrl} alt='logo' />
       <nav>

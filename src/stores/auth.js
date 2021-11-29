@@ -1,7 +1,9 @@
 // 登陆注册
 import { makeObservable, observable, action } from 'mobx';
 import { Auth } from '../models/index';
-import UserStore from './user'
+import UserStore from './user';
+import HistoryStore from './history';
+import ImgStore from './image'
 
 
 class AuthStore {
@@ -46,6 +48,8 @@ class AuthStore {
   @action logout() {
     Auth.logout();
     UserStore.resetUser();
+    HistoryStore.reset();
+    ImgStore.reset();
   }
 }
 

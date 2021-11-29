@@ -37,14 +37,25 @@ const Uploader = {
     item.set('url', imgFile);
     return new Promise((resolve, reject) => {
       item.save().then(serverFile => {
-        console.log(imgFile.thumbnailURL(800,400))
-        resolve(serverFile)
-      }, err=> reject(err));
+        resolve(serverFile);
+      }, err => reject(err));
     });
+  },
+  find( page=0,limit=10 ) {
+    const query = new AV.Query('Image');
+    query.equalTo('owner', AV.User.current());
+    query.limit(limit);
+    query.skip(page * limit);
+    query.descending('createAt');
+    return new Promise((resolve, reject) => {
+      query.find()
+        .then(result => resolve(result))
+        .catch(err => reject(err))
+    })
   },
 }
 
-
+window.Uploader = Uploader;
 
 export {
   Auth,
