@@ -8,7 +8,7 @@ import styled from 'styled-components';
 const Img = styled.img`
   width: 100px;
   height: 100px;
-  bject-fit: contain;
+  object-fit: contain;
   border: 1px solid #eee;
 `;
 const Div = styled.div`
@@ -24,6 +24,7 @@ const Component = observer(() => {
   useEffect(() => {
     loadNext();
     return () => { HistoryStore.reset() };
+    // eslint-disable-next-line
   }, []);
   return (
     <div id="scrollableDiv"

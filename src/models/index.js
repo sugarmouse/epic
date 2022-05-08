@@ -6,6 +6,7 @@ AV.init({
   serverURL: "https://rgicsghc.lc-cn-e1-shared.com"
 });
 
+
 const Auth = {
   register(username, password) {
     let user = new AV.User();
