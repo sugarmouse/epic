@@ -1,8 +1,7 @@
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button,message } from 'antd';
 import styled from 'styled-components';
 import { useStores } from '../stores/index';
 import { useNavigate } from 'react-router-dom';
-import { message } from 'antd';
 
 const Wraper = styled.div`
   max-width: 600px;
@@ -16,7 +15,7 @@ const Title = styled.h1`
   text-align: center;
 `
 
-const Component = () => {
+const Login = () => {
   const { AuthStore } = useStores();
   const navigate = useNavigate();
 
@@ -98,4 +97,4 @@ const Component = () => {
   );
 };
 
-export default Component
+export  {Login}

@@ -4,7 +4,7 @@ import {useStores} from '../stores/index';
 import { useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 
-const Wraper = styled.div`
+const Wrapper = styled.div`
   max-width: 600px;
   margin: 30px auto;
   box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.2);
@@ -16,7 +16,7 @@ const Title = styled.h1`
   text-align: center;
 `
 
-const Component = () => {
+const Register = () => {
   const {AuthStore} = useStores();
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ const Component = () => {
 
 
   return (
-    <Wraper>
+    <Wrapper>
       <Title>注册</Title>
       <Form
         name="basic"
@@ -114,8 +114,8 @@ const Component = () => {
           </Button>
         </Form.Item>
       </Form>
-    </Wraper>
+    </Wrapper>
   );
 };
 
-export default Component
+export  {Register}

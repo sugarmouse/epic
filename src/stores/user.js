@@ -1,20 +1,20 @@
 // 用户信息存储
-import { makeObservable, observable, action } from 'mobx';
+import {  makeAutoObservable } from 'mobx'
 import { Auth } from '../models/index'
 
 
 class UserStore {
 
-  @observable currentUser = null;
+  currentUser = null;
 
   constructor() {
-    makeObservable(this);
+    makeAutoObservable(this)
   }
-  @action pullUser() {
+  pullUser() {
     this.currentUser = Auth.getCurrentUser()
   }
-  @action resetUser() {
-    this.currentUser = null;
+  resetUser() {
+    this.currentUser = null
   }
 }
 

@@ -1,55 +1,62 @@
 // 登陆注册
-import { makeObservable, observable, action } from 'mobx';
-import { Auth } from '../models/index';
-import UserStore from './user';
-import HistoryStore from './history';
+import { makeObservable, observable, action } from 'mobx'
+import { Auth } from '../models/index'
+import UserStore from './user'
+import HistoryStore from './history'
 import ImgStore from './image'
 
 
 class AuthStore {
 
-  @observable values = {
+  values = {
     username: '',
     password: ''
   };
   constructor() {
-    makeObservable(this)
+    makeObservable(this, {
+      values: observable,
+      setPassword: action,
+      setUsername:action,
+      login: action,
+      register: action,
+      logout: action
+    })
   }
-  @action setUsername(username) {
-    this.values.username = username;
+  setUsername(username) {
+    this.values.username = username
   }
-  @action setPassword(password) {
-    this.values.password = password;
+  setPassword(password) {
+    this.values.password = password
   }
-  @action login() {
+  login() {
     return new Promise((resolve, reject) => {
       Auth.login(this.values.username, this.values.password)
         .then(user => {
-          UserStore.pullUser();
-          resolve(user);
+          UserStore.pullUser()
+          resolve(user)
         }).catch(err => {
-          UserStore.resetUser();
-          reject(err);
+          UserStore.resetUser()
+          reject(err)
         })
     })
   }
-  @action register() {
+  register() {
     return new Promise((resolve, reject) => {
       Auth.register(this.values.username, this.values.password)
         .then(user => {
-          UserStore.pullUser();
-          resolve(user);
+          UserStore.pullUser()
+          resolve(user)
         }).catch(err => {
-          UserStore.resetUser();
-          reject(err);
+          UserStore.resetUser()
+          reject(err)
         })
     })
   }
-  @action logout() {
-    Auth.logout();
-    UserStore.resetUser();
-    HistoryStore.reset();
-    ImgStore.reset();
+  logout() {
+    Auth.logout()
+    UserStore.resetUser()
+    HistoryStore.reset()
+    ImgStore.reset()
   }
 }
 
