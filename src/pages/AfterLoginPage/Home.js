@@ -7,7 +7,6 @@ import {IsMobileContext} from '../../App'
 
 const Home = observer(() => {
 
-  const isMobile = React.useContext(IsMobileContext)
   return (
     <>
       <Tips/><Uploader/>
