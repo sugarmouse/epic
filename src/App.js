@@ -1,7 +1,7 @@
 import React, {Suspense, useEffect, useState} from 'react'
 import Loading from './components/Loading'
 import {Routes, Route} from 'react-router-dom'
-import './App.css'
+import './App.less'
 import {isMobile} from './lib/isMobile'
 import {IndexPage} from './pages/IndexPage'
 import {AfterLogin} from './pages/AfterLoginPage/AfterLogin'
