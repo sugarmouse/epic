@@ -7,21 +7,30 @@ export const Header = styled.header`
   color: white;
   align-items: center;
   padding: 10px 100px;
-  background-color: #000;
+  background-color: #111;
   @media only screen and (max-width: 600px) {
-    padding: 2px 10px;
+    padding: 40px 0;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
   }
 `
 export const Nav = styled.nav`
   height: 30px;
   display: flex;
 `
+export const Describe = styled.h1`
+  color: whitesmoke;
+  margin-bottom: 10vh;
+`
 
 export const Logo = styled.img`
   height: 30px;
+  @media only screen and (max-width: 600px) {
+    height: 20vh;
+    margin-bottom: 10vh;
+
+  }
 `
 export const StyledLink = styled(NavLink)`
   color: #fff;
@@ -33,7 +42,7 @@ export const StyledLink = styled(NavLink)`
 
   }
 
-  &.active{
+  &.active {
     border-bottom: 4px solid #ec5347;
     border-radius: 4px;
   }
@@ -45,21 +54,28 @@ export const Login = styled.div`
 
   }
 `
+
+export const ButtonWrapper = styled.div`
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
+`
 export const StyledButton = styled(Button)`
   margin: 10px;
   border-radius: 20px;
   border: none;
 
   &[attribute='login'] {
-    background: rgb(54,179,48);
-
+    background: rgb(54, 179, 48);
   }
 
   &[attribute='register'] {
-    background: rgb(242,49,49);
+    background: rgb(242, 49, 49);
   }
 
   @media only screen and (max-width: 600px) {
+    width: 40vw;
     margin: 4px;
     padding: 0 10px;
     border-radius: 10px;

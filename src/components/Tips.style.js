@@ -6,6 +6,10 @@ export const Warning = styled.div`
   margin: 10px 0;
   color: #fff;
   border-radius: 4px;
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+    text-align: center;
+  }
 `;
 export const Hello = styled.div`
   background: #0073bf;
@@ -13,4 +17,8 @@ export const Hello = styled.div`
   margin: 10px 0;
   color: #fff;
   border-radius: 4px;
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+    text-align: center;
+  }
 `;

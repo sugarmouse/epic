@@ -3,24 +3,24 @@ body {
   font: 16px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  color: #333;
+  color: whitesmoke;
   background-color: #000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: #111;
+  color: whitesmoke;
   text-decoration: none;
 
 }
 #root {
+  color:whitesmoke;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
 }
 main {
-  flex: 1;
-  padding: 30px 100px; 
+  background-color: #000000;
 }

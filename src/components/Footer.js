@@ -4,7 +4,7 @@ import {Footer} from './Footer.style'
 
 
 const Component = observer(() => {
-  return <Footer></Footer>
+  return <Footer/>
 })
 
 export default Component

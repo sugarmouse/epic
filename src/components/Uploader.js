@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 import {useStores} from '../stores/index'
-import {observer, useLocalStore} from 'mobx-react'
+import {observer,useLocalObservable} from 'mobx-react'
 import {Upload, message, Spin} from 'antd'
 import {InboxOutlined} from '@ant-design/icons'
 import {Result, H1, Image} from './Uploader.style'
@@ -13,7 +13,7 @@ const Component = observer(() => {
   const refHeight = useRef()
 
 
-  const store = useLocalStore(() => ({
+  const store = useLocalObservable(() => ({
     width: null,
     setWidth(width) {
       store.width = width
@@ -61,7 +61,7 @@ const Component = observer(() => {
       ImgStore.upload()
         .then((serverFile) => {
           message.info('图片上传成功')
-        }).catch(err => {
+        }).catch(() => {
         message.error('图片上传失败')
       })
       return false
