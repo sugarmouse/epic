@@ -3,8 +3,8 @@ import Loading from './components/Loading'
 import {Routes, Route} from 'react-router-dom'
 import './App.less'
 import {isMobile} from './lib/isMobile'
-import {IndexPage} from './pages/IndexPage'
-import {AfterLogin} from './pages/AfterLoginPage/AfterLogin'
+import {HomeLayout} from './pages/HomeLayout'
+import {AfterLoginLayout} from './pages/AfterLoginPage/AfterLoginLayout'
 import {FirstPage} from './pages/IndexPage/FirstPage'
 
 
@@ -28,7 +28,6 @@ function App() {
     setMobile(() => isMobile())
     window.onresize = () => {
       setMobile(() => isMobile())
-      console.log(mobile)
     }
   }, [])
 
@@ -36,16 +35,15 @@ function App() {
     <IsMobileContext.Provider value={mobile}>
       <Suspense fallback={<Loading/>}>
         <Routes>
-          <Route path='/' element={<IndexPage/>}>
+          <Route path='/' element={<HomeLayout/>}>
             <Route index element={<FirstPage/>}/>
             <Route path="login" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
           </Route>
-          <Route path="in/" element={<AfterLogin/>}>
+          <Route path="in/" element={<AfterLoginLayout/>}>
             <Route index  element={<Home/>}/>
             <Route path="history" element={<History/>}/>
           </Route>
-
         </Routes>
       </Suspense>
     </IsMobileContext.Provider>

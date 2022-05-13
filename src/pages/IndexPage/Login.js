@@ -24,7 +24,7 @@ const Login = () => {
     AuthStore.setPassword(values.password);
     AuthStore.login( )
       .then(() => {
-        navigate('/')
+        navigate('/in')
       }).catch((e) => {
         message.error('登陆失败')
       })

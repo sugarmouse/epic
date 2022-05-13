@@ -13,9 +13,10 @@ class UserStore {
   pullUser() {
     this.currentUser = Auth.getCurrentUser()
   }
-  resetUser() {
-    this.currentUser = null
+  resetUser(use=null) {
+    this.currentUser = use
   }
+
 }
 
 export default new UserStore()

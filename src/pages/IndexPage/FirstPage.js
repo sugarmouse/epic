@@ -12,14 +12,15 @@ export const FirstPage = () => {
   const handleRegister = () => {
     navigate('/register')
   }
+
   return (
     <>
-      <h1>
+      <h1>你的移动图库</h1>
         <ButtonWrapper>
           <StyledButton attribute="login" type="primary" onClick={handleLogin}>登陆</StyledButton>
           <StyledButton attribute="register" type="primary" onClick={handleRegister}>注册</StyledButton>
         </ButtonWrapper>
-      </h1>
+
     </>
 
   )

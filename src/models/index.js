@@ -22,7 +22,22 @@ const Auth = {
     });
   },
   logout() {
-    AV.User.logOut();
+    return new Promise((resolve, reject) => {
+      AV.User.logOut( ).then((user) => resolve(user), (err) => reject(err));
+    });
+  },
+  getToken(){
+    return AV.User.current().getSessionToken()
+  },
+  loginWithToken(token){
+    return new Promise((resolve,reject)=>{
+      AV.User.become(token).then((user) => {
+        resolve(user)
+      }, (error) => {
+        reject('session token 无效')
+      });
+    })
+
   },
   getCurrentUser() {
     return AV.User.current();

@@ -63,6 +63,8 @@ const cssRegex = /\.css$/
 const cssModuleRegex = /\.module\.css$/
 const sassRegex = /\.(scss|sass)$/
 const sassModuleRegex = /\.module\.(scss|sass)$/
+const lessRegex = /\.less$/
+const lessModuleRegex = /\.module\.less$/
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -365,7 +367,7 @@ module.exports = function (webpackEnv) {
         // Disable require.ensure as it's not a standard language feature.
         {parser: {requireEnsure: false}},
         {
-          test: /\.less$/,
+          test: lessRegex,
           use: [{
             loader: 'style-loader',
           }, {
@@ -383,6 +385,7 @@ module.exports = function (webpackEnv) {
             }
           }]
         },
+
         {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall

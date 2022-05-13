@@ -1,5 +1,4 @@
 @import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
-
 @my-background-color:#000 ;
 body {
   margin: 0;
@@ -23,5 +22,26 @@ a {
 }
 
 main {
-  background-color: @my-background-color;
+  background-color: rgba(0,0,0,0.4);
+}
+
+video#bgvid {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background: url(./assets/home-page-background.png) no-repeat;
+  background-size: cover;
+}
+video{
+  display: block;
+}
+img{
+
+  z-index: -99;
+  background-size: cover;
 }
