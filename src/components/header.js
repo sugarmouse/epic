@@ -1,9 +1,83 @@
 import React from 'react'
-import LogoUrl from '../assets/img/logo.svg'
-import {useNavigate} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import {useStores} from '../stores/index'
 import {observer} from 'mobx-react'
-import {Header, Logo, StyledLink, Login, StyledButton, Nav, ButtonWrapper} from './Header.style.js'
+import styled from 'styled-components'
+import {Button} from 'antd'
+import {Logo} from './Logo'
+
+
+const Header = styled.header`
+  display: flex;
+  color: white;
+  align-items: center;
+  padding: 10px 100px;
+  background-color: #111;
+  @media only screen and (max-width: 600px) {
+    padding: 40px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`
+const Nav = styled.nav`
+  height: 30px;
+  display: flex;
+`
+const Describe = styled.h1`
+  color: whitesmoke;
+  margin-bottom: 10vh;
+`
+const StyledLink = styled(NavLink)`
+  color: #fff;
+  margin-left: 30px;
+  position: relative;
+
+  @media only screen and (max-width: 600px) {
+    margin-left: 4px;
+
+  }
+
+  &.active {
+    border-bottom: 4px solid #ec5347;
+    border-radius: 4px;
+  }
+`
+const Login = styled.div`
+  margin-left: auto;
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+
+  }
+`
+
+const ButtonWrapper = styled.div`
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
+`
+const StyledButton = styled(Button)`
+  margin: 10px;
+  border-radius: 20px;
+  border: none;
+
+  &[attribute='login'] {
+    background: rgb(54, 179, 48);
+  }
+
+  &[attribute='register'] {
+    background: rgb(242, 49, 49);
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 40vw;
+    margin: 4px;
+    padding: 0 10px;
+    border-radius: 10px;
+
+  }
+`
 
 
 const Component = observer(() => {
@@ -26,11 +100,11 @@ const Component = observer(() => {
   return (
 
     <Header>
-      <Logo src={LogoUrl} alt="logo"/>
-          <Nav>
-            <StyledLink to="/in" activeclassname="active">首页</StyledLink>
-            <StyledLink to="/in/history" activeclassname="active">上传历史</StyledLink>
-          </Nav>
+      <Logo/>
+      <Nav>
+        <StyledLink to="/in" activeclassname="active">首页</StyledLink>
+        <StyledLink to="/in/history" activeclassname="active">上传历史</StyledLink>
+      </Nav>
 
       <Login>
         {

@@ -1,10 +1,23 @@
 import React, {useRef} from 'react'
 import {useStores} from '../stores/index'
-import {observer,useLocalObservable} from 'mobx-react'
+import {observer, useLocalObservable} from 'mobx-react'
 import {Upload, message, Spin} from 'antd'
 import {InboxOutlined} from '@ant-design/icons'
-import {Result, H1, Image} from './Uploader.style'
+import styled from 'styled-components'
 
+
+const Result = styled.div`
+  margin-top: 30px;
+  border: 1px dashed #ccc;
+  padding: 20px;
+`
+const H1 = styled.h1`
+  margin: 20px 0;
+  text-align: center;
+`
+const Image = styled.img`
+  max-width: 300px;
+`
 
 const Component = observer(() => {
   const {UserStore, ImgStore} = useStores()
@@ -83,27 +96,28 @@ const Component = observer(() => {
       </Spin>
 
       {
-        ImgStore.serverFile ? <Result>
-          <H1>上传结果</H1>
-          <dl>
-            <dt>线上地址</dt>
-            <dd><a target="_blank" rel="noreferrer"
-                   href={ImgStore.serverFile.attributes.url.attributes.url}>{ImgStore.serverFile.attributes.url.attributes.url}</a>
-            </dd>
-            <dt>文件名</dt>
-            <dd>{ImgStore.filename}</dd>
-            <dt>文件预览</dt>
-            <dd>
-              <Image src={ImgStore.serverFile.attributes.url.attributes.url} alt="加载失败"/>
-            </dd>
-            <dt>尺寸</dt>
-            <dd>
-              <input ref={refWidth} onChange={bindWidthChange} placeholder="最大宽度（可选）"/>
-              <input ref={refHeight} onChange={bindHeightChange} placeholder="最大高度（可选）"/>
-            </dd>
-            <dd><a target="_blank" rel="noreferrer" href={store.thumbnailImgUrl}>{store.thumbnailImgUrl}</a></dd>
-          </dl>
-        </Result> : null
+        ImgStore.serverFile ?
+          <Result>
+            <H1>上传结果</H1>
+            <dl>
+              <dt>线上地址</dt>
+              <dd><a target="_blank" rel="noreferrer"
+                     href={ImgStore.serverFile.attributes.url.attributes.url}>{ImgStore.serverFile.attributes.url.attributes.url}</a>
+              </dd>
+              <dt>文件名</dt>
+              <dd>{ImgStore.filename}</dd>
+              <dt>文件预览</dt>
+              <dd>
+                <Image src={ImgStore.serverFile.attributes.url.attributes.url} alt="加载失败"/>
+              </dd>
+              <dt>尺寸</dt>
+              <dd>
+                <input ref={refWidth} onChange={bindWidthChange} placeholder="最大宽度（可选）"/>
+                <input ref={refHeight} onChange={bindHeightChange} placeholder="最大高度（可选）"/>
+              </dd>
+              <dd><a target="_blank" rel="noreferrer" href={store.thumbnailImgUrl}>{store.thumbnailImgUrl}</a></dd>
+            </dl>
+          </Result> : null
       }
     </div>
 

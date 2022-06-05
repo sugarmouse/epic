@@ -1,10 +1,12 @@
 @import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
-@my-background-color:#000 ;
+
+
+@my-background-color: #000;
 body {
   margin: 0;
   font: 16px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,17 +14,13 @@ body {
 a {
   color: whitesmoke;
   text-decoration: none;
-
 }
+
 #root {
-  color:whitesmoke;
+  color: whitesmoke;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-main {
-  background-color: rgba(0,0,0,0.4);
 }
 
 video#bgvid {
@@ -37,11 +35,8 @@ video#bgvid {
   background: url(./assets/home-page-background.png) no-repeat;
   background-size: cover;
 }
-video{
+
+video {
   display: block;
 }
-img{
 
-  z-index: -99;
-  background-size: cover;
-}

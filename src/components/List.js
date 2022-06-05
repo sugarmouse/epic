@@ -3,7 +3,16 @@ import { observer } from 'mobx-react';
 import { useStores } from '../stores';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { List, Skeleton, Divider } from 'antd';
-import {Img,Div} from './List.style'
+import styled from 'styled-components'
+ const Img = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border: 1px solid #eee;
+`;
+ const Div = styled.div`
+  margin: 0 20px;
+`;
 
 const Component = observer(() => {
   const { HistoryStore } = useStores()

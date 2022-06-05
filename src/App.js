@@ -3,7 +3,7 @@ import Loading from './components/Loading'
 import {Routes, Route} from 'react-router-dom'
 import './App.less'
 import {isMobile} from './lib/isMobile'
-import {HomeLayout} from './pages/HomeLayout'
+import {IndexLayout} from './pages/IndexLayout'
 import {AfterLoginLayout} from './pages/AfterLoginPage/AfterLoginLayout'
 import {FirstPage} from './pages/IndexPage/FirstPage'
 
@@ -35,7 +35,7 @@ function App() {
     <IsMobileContext.Provider value={mobile}>
       <Suspense fallback={<Loading/>}>
         <Routes>
-          <Route path='/' element={<HomeLayout/>}>
+          <Route path='/' element={<IndexLayout/>}>
             <Route index element={<FirstPage/>}/>
             <Route path="login" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>

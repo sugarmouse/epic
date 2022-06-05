@@ -1,12 +1,36 @@
 import React, {useEffect} from 'react'
 import {useStores} from '../stores/index'
 import {observer} from 'mobx-react'
-import {Warning, Hello} from './Tips.style'
 import {IsMobileContext} from '../App'
+import styled from 'styled-components'
+
+
+const Warning = styled.div`
+  background: orange;
+  padding: 10px;
+  margin: 10px 0;
+  color: #fff;
+  border-radius: 4px;
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+    text-align: center;
+  }
+`
+const Hello = styled.div`
+  background: #0073bf;
+  padding: 10px;
+  margin: 10px 0;
+  color: #fff;
+  border-radius: 4px;
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+    text-align: center;
+  }
+`
 
 
 const SayHello = observer(() => {
-  const {AuthStore,UserStore} = useStores()
+  const {AuthStore, UserStore} = useStores()
 
   return (
     <Hello>Hello {UserStore.currentUser.attributes.username}</Hello>
