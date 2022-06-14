@@ -1,7 +1,6 @@
-@import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
+@import '~antd/dist/antd.css';
 
 
-@my-background-color: #000;
 body {
   margin: 0;
   font: 16px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,6 +9,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+h1,h2,h3,h4,h5,h6 {
+  color: #000;
+}
 
 a {
   color: whitesmoke;
@@ -17,7 +19,8 @@ a {
 }
 
 #root {
-  color: whitesmoke;
+  color: #000c17;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

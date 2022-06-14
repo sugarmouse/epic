@@ -1,6 +1,6 @@
 import { Form, Input, Button,message } from 'antd';
 import styled from 'styled-components';
-import { useStores } from '../../stores';
+import { useStores } from '../stores';
 import { useNavigate } from 'react-router-dom';
 
 const Wraper = styled.div`

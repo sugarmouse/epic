@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useStores} from '../stores/index'
 import {observer} from 'mobx-react'
-import {IsMobileContext} from '../App'
 import styled from 'styled-components'
 
 
@@ -30,7 +29,7 @@ const Hello = styled.div`
 
 
 const SayHello = observer(() => {
-  const {AuthStore, UserStore} = useStores()
+  const { UserStore} = useStores()
 
   return (
     <Hello>Hello {UserStore.currentUser.attributes.username}</Hello>
@@ -39,7 +38,6 @@ const SayHello = observer(() => {
 
 const Component = observer(() => {
   const {UserStore} = useStores()
-  const isMobile = React.useContext(IsMobileContext)
   return (
     <>
       {UserStore.currentUser ? <SayHello/> : <Warning>请先登陆再上传 </Warning>}

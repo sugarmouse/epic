@@ -1,7 +1,7 @@
 import {Layout} from '../../components/Layout'
 import {Outlet} from 'react-router-dom'
 import styled from 'styled-components'
-import './layout.less'
+import './layout.scss'
 import {useEffect} from 'react'
 import {useStores} from '../../stores'
 

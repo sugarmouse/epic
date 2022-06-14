@@ -5,11 +5,10 @@ import React from 'react'
 
 
 export const Layout = (props) => {
-  const {backgroundColor, children, isShowHeader, isShowFooter} = props
+  const {children, isShowHeader, isShowFooter} = props
 
   const Main = styled.main`
     flex-grow: 1;
-    background: ${backgroundColor};
     justify-content: center;
     align-items: center;
   `
