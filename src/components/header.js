@@ -24,10 +24,6 @@ const Nav = styled.nav`
   height: 30px;
   display: flex;
 `
-const Describe = styled.h1`
-  color: whitesmoke;
-  margin-bottom: 10vh;
-`
 const StyledLink = styled(NavLink)`
   color: #fff;
   margin-left: 30px;
